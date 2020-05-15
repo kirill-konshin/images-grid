@@ -1,0 +1,39 @@
+language: node_js
+
+cache:
+  yarn: true
+  directories:
+    - '.eslint'
+    - 'node_modules'
+    - '*/node_modules'
+
+node_js: 13.9
+
+before_install: npm config set //registry.npmjs.org/:_authToken=${NPM_TOKEN}
+
+before_script:
+- DEBUG=eslint:cli-engine yarn lint:all
+- yarn build
+- cp gatsby-demo/public/index.html gatsby-demo/public/404.html
+
+deploy:
+- provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  local-dir: gatsby-demo/public
+  on:
+    branch: master
+- provider: script
+  script: yarn publish:release ${TRAVIS_TAG} --yes
+  skip_cleanup: true
+  on:
+    all_branches: true
+    condition: $TRAVIS_TAG != "" && $TRAVIS_TAG != *"-"*
+    repo: kirill-konshin/images-grid
+- provider: script
+  script: yarn publish:release ${TRAVIS_TAG} --yes --dist-tag next
+  skip_cleanup: true
+  on:
+    all_branches: true
+    condition: $TRAVIS_TAG == *"-"*
+    repo: kirill-konshin/images-grid

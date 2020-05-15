@@ -1,0 +1,40 @@
+{
+  "name": "images-grid",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "lerna run clean && lerna clean --yes && rimraf loki node_modules .cache .cache-loader .scannerwork",
+    "start": "lerna run start --parallel",
+    "build": "lerna run build --stream",
+    "test": "echo Skipped",
+    "link:all": "node symlink.js",
+    "lint": "eslint --cache --cache-location .eslint/cache --fix ",
+    "lint:all": "yarn lint \"*/src/**/*.{js,jsx,ts,tsx}\"",
+    "lint:staged": "lint-staged",
+    "publish:release": "lerna publish --tag-version-prefix=\"\" --force-publish=* --no-push --no-git-tag-version"
+  },
+  "dependencies": {
+    "eslint": "6.8.0",
+    "eslint-config-ringcentral-typescript": "3.0.0",
+    "husky": "4.2.5",
+    "lerna": "3.21.0",
+    "lint-staged": "10.2.2",
+    "typescript": "3.9.2"
+  },
+  "workspaces": [
+    "gatsby-demo",
+    "gatsby-images-grid",
+    "react-demo",
+    "react-images-grid"
+  ],
+  "author": "Kirill Konshin",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kirill-konshin/images-grid.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kirill-konshin/images-grid/issues"
+  },
+  "homepage": "https://kirill-konshin.github.io/images-grid",
+  "license": "MIT"
+}

@@ -1,0 +1,47 @@
+.react-images-grid__container {
+    overflow: hidden; /* overcomes negative margin of wrapper */
+}
+
+.react-images-grid__wrapper {
+    margin: -0.5%;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.react-images-grid__photo {
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    height: 20vh;
+    margin: 0.5%;
+    flex-grow: 1;
+}
+
+@media only screen and (max-width: 800px) {
+    .react-images-grid__photo {
+        height: 100px;
+    }
+}
+
+.react-images-grid__title {
+    color: white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.15em 0.5em 0.1em 0.5em;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.react-images-grid__photo:hover .react-images-grid__title {
+    display: block;
+}

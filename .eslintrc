@@ -1,0 +1,27 @@
+{
+  "extends": [
+    "ringcentral-typescript"
+  ],
+  "rules": {
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "import/named": "off",
+    "import/no-default-export": "off",
+    "import/no-unresolved": "off",
+    "import/no-webpack-loader-syntax": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "no-console": "off",
+    "react/prop-types": "off",
+    "ringcentral/specified-comment-with-task-id": "off",
+    "react/display-name": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "16.12.0"
+    }
+  }
+}
